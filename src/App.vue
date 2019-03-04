@@ -1,30 +1,84 @@
 <template>
-  <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
-  </div>
+  <v-app>
+    <v-container>
+      <v-toolbar app>
+        <v-toolbar-side-icon>
+          <v-icon color="primary">fa-futbol</v-icon>
+        </v-toolbar-side-icon>
+        <v-toolbar-title class="headline text-uppercase">
+          <span>Venturus Sports</span>
+        </v-toolbar-title>
+        <v-spacer>
+        </v-spacer>
+        <v-toolbar-items class="hidden-sm-and-down">
+          <v-menu offset-y>
+            <v-btn
+              slot="activator"
+              color="seconday"
+              flat small
+            >
+              <v-avatar left color="primary">
+                <span class="white--text"> JB </span>
+              </v-avatar>
+              <span style="margin-left: 7px;">Jason Bourne</span>
+              <v-icon right small>fa-chevron-down</v-icon>
+            </v-btn>
+            <v-list>
+              <v-list-tile>
+                <v-list-tile-action>
+                  <v-icon>fa-users</v-icon>
+                 </v-list-tile-action> 
+                <v-list-tile-title>Friends List</v-list-tile-title>
+              </v-list-tile>
+              <v-list-tile>
+                <v-list-tile-action>
+                  <v-icon>fa-save</v-icon>
+                 </v-list-tile-action> 
+                <v-list-tile-title>Saved Items</v-list-tile-title>
+              </v-list-tile>
+              <v-list-tile>
+                <v-list-tile-action>
+                  <v-icon>fa-bell</v-icon>
+                 </v-list-tile-action> 
+                <v-list-tile-title>Notifications</v-list-tile-title>
+              </v-list-tile>
+              <v-list-tile>
+                <v-list-tile-action>
+                  <v-icon>fa-cog</v-icon>
+                 </v-list-tile-action> 
+                <v-list-tile-title>User Preferences</v-list-tile-title>
+              </v-list-tile>
+              <v-divider></v-divider>
+              <v-list-tile>
+                <v-list-tile-action>
+                  <v-icon>fa-sign-out-alt</v-icon>
+                 </v-list-tile-action> 
+                <v-list-tile-title>Log out</v-list-tile-title>
+              </v-list-tile>
+            </v-list>
+          </v-menu>
+        </v-toolbar-items>
+      </v-toolbar>
+    </v-container>
+
+    <v-content>
+      <router-view></router-view>
+    </v-content>
+  </v-app>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
+<script>
+import HelloWorld from './components/HelloWorld'
 
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
+export default {
+  name: 'App',
+  components: {
+    HelloWorld
+  },
+  data () {
+    return {
+      //
     }
   }
 }
-</style>
+</script>

@@ -65,7 +65,9 @@
           <v-icon>fa-chevron-right</v-icon>
         </template>
       </v-breadcrumbs>
-      <router-view></router-view>
+      <v-container fluid>
+        <router-view></router-view>
+      </v-container>
     </v-content>
   </v-app>
 </template>
@@ -81,10 +83,10 @@ export default {
   },
   computed: {
     items () {
-      const route = this.$router.currentRoute.path.split('/').splice(0, 1)
+      const route = this.$router.currentRoute.path.split('/')
       return route.map((item, idx) => ({
         text: idx === 0 ? '⌂' : item,
-        disabled: false,
+        disabled: true,
         href: item
       }))
     }

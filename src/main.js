@@ -1,14 +1,14 @@
 import Vue from 'vue'
+import './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import BootstrapVue from 'bootstrap-vue'
-import 'bootstrap/dist/css/bootstrap.css'
-import 'bootstrap-vue/dist/bootstrap-vue.css'
-
-Vue.use(BootstrapVue)
+import * as filters from './utils/filters'
 
 Vue.config.productionTip = false
+
+Vue.filter('frequency', filters.frequency)
+Vue.filter('dotw', filters.dayOfTheWeek)
 
 new Vue({
   router,
